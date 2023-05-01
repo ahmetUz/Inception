@@ -6,7 +6,7 @@
 #    By: auzun <auzun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 03:06:26 by auzun             #+#    #+#              #
-#    Updated: 2023/05/01 03:06:30 by auzun            ###   ########.fr        #
+#    Updated: 2023/05/01 18:02:46 by auzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all:
 up:
 					if test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -eq 1; then \
 						echo "$(RED) Containers were not built$(END)"; \
-					elif test $$(sudo docker ps | wc -l) -gt 1; then \
+					elif test $$(sudo docker ps | wc -l) -eq 4; then \
 						echo "$(RED) All services are already running$(END)"; \
 					else \
 						sudo docker-compose -f src/docker-compose.yml up -d; \
