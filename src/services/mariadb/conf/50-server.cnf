@@ -1,0 +1,14 @@
+[mysqld]
+
+datadir = /var/lib/mysql
+#path of database
+
+socket  = /run/mysqld/mysqld.sock
+#path of socket (ip + port)
+
+bind_address=*
+#ip address allowed
+
+port = 3306
+
+user = mysql
