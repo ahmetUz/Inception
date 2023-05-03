@@ -1,7 +1,7 @@
 FROM debian:buster
 
 #le apt update etc etc des familles + installation de wget pour telecharger wordpress
-RUN apt-get update && apt-get upgrade && apt-get install -y wget
+RUN apt-get -y update && apt-get -y upgrade && apt-get install -y wget
 
 #pour ecouter sur le port 9000 comme demander dans le sujet
 EXPOSE 9000
