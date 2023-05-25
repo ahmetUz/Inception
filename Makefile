@@ -6,7 +6,7 @@
 #    By: auzun <auzun@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 03:06:26 by auzun             #+#    #+#              #
-#    Updated: 2023/05/25 03:23:09 by auzun            ###   ########.fr        #
+#    Updated: 2023/05/25 04:07:56 by auzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ VOLUMES_PATH	=	/home/auzun/data/mariadb \
 					/home/auzun/data/wordpress
 
 all:
-					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -eq 4; then \
+					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -eq 5; then \
 						echo "$(RED) All services are already build$(END)"; \
 					else \
 						if sudo test -d "/home/auzun/data/mariadb/" && sudo test -d "/home/auzun/data/wordpress/"; then \
@@ -35,7 +35,7 @@ all:
 					fi
 
 up:
-					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -ne 4; then \
+					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -ne 5; then \
 						echo "$(RED) Containers were not built$(END)"; \
 					elif sudo test $$(sudo docker ps | wc -l) -eq 4; then \
 						echo "$(RED) All services are already running$(END)"; \
@@ -53,7 +53,7 @@ stop:
 					fi
 
 clean:
-					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -eq 1; then \
+					if sudo test $$(sudo docker-compose -f src/docker-compose.yml images | wc -l) -eq 2; then \
 						echo "$(RED) All services are already removed$(END)"; \
 					else \
 						sudo docker-compose -f src/docker-compose.yml down; \
